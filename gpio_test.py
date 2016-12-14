@@ -27,19 +27,24 @@ def detectarObstaculo():
  
    while GPIO.input(Echo) == 1:
       end = time.time()
+      
+   print "%.2f" %start
  
    #La duracion del pulso del pin Echo sera la diferencia entre
    #el tiempo de inicio y el final
-   duracion = end-start
+   
+   #duracion = end-start
  
    #Este tiempo viene dado en segundos. Si lo pasamos
    #a microsegundos, podemos aplicar directamente las formulas
    #de la documentacion
-   duracion = duracion*10**6
-   medida = duracion/58 #hay que dividir por la constante que pone en la documentacion, nos dara la distancia en cm
+   
+   #duracion = duracion*10**6
+   #medida = duracion/58 #hay que dividir por la constante que pone en la documentacion, nos dara la distancia en cm
  
-   print "%.2f" %medida #por ultimo, vamos a mostrar el resultado por pantalla
+   #print "%.2f" %medida #por ultimo, vamos a mostrar el resultado por pantalla
  
+	
 #Bucle principal del programa, lee el sensor. Se sale con CTRL+C
 while True:
    try:
