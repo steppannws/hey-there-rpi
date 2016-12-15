@@ -92,7 +92,7 @@ def main():
 	logo = pygame.image.load("logo.png")
 	logo = pygame.transform.rotate(logo, 90)
 	
-	screen.blit(logo, (100,100))
+	screen.blit(logo, (200,100))
 	
 	font = pygame.font.SysFont("monospace", 24)	
 
@@ -115,7 +115,8 @@ def main():
 						GPIO.cleanup()
 						sys.exit()
 					if event.type == pygame.KEYDOWN and event.key == pygame.K_v:
-						subprocess.call(['omxplayer', 'video.mp4'])
+						#subprocess.call(['omxplayer', 'video.mp4'])
+						video = subprocess.Popen(['omxplayer', '--win', '200 0 1280 720', 'video.mp4'])
 					if event.type == pygame.KEYDOWN and event.key == pygame.K_d:
 							DEBUG = not DEBUG
 			
@@ -128,14 +129,14 @@ def main():
 				#render logo
 				logo = pygame.image.load("logo.png")
 				logo = pygame.transform.rotate(logo, 90)
-				screen.blit(logo, (100,100))	
+				screen.blit(logo, (200,100))	
 				
 				distance = measure_average()
 				
 				if DEBUG == True:
 					distance_indicator = font.render("Distance: %.1f" % distance, 1, (255,255,255))
 					distance_indicator = pygame.transform.rotate(distance_indicator, 90)
-					screen.blit(distance_indicator, (300, 120))
+					screen.blit(distance_indicator, (400, 120))
 					#print "Distance : %.1f" % distance
 				
 				if distance <= DISTANCE_THRESHOLD:
