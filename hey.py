@@ -11,8 +11,7 @@ GPIO_TRIGGER = 23
 GPIO_ECHO    = 24
 
 VIDEO_LENGHT = 45
-DISTANCE_THRESHOLD = 70
-
+DISTANCE_THRESHOLD =40
 #state
 IDLE = 0
 PLAYING = 1
@@ -141,14 +140,14 @@ def main():
 				
 				if distance <= DISTANCE_THRESHOLD:
 					state = PLAYING
-					video = subprocess.Popen(['omxplayer', 'video.mp4'])
+					#video = subprocess.Popen(['omxplayer', 'video.mp4'])
 					
 					time.sleep(VIDEO_LENGHT)
 					
 					state = IDLE
 					
-					video.kill()
-					video.terminate()
+					#video.kill()
+					#video.terminate()
 										
 					init_sensor()
 					
