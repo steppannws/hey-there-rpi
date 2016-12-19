@@ -132,6 +132,7 @@ def main():
 				
 				distance = measure_average()
 				
+                # Show debug utils
 				if DEBUG == True:
 					distance_indicator = font.render("Distance: %.1f" % distance, 1, (255,255,255))
 					distance_indicator = pygame.transform.rotate(distance_indicator, 90)
@@ -140,14 +141,14 @@ def main():
 				
 				if distance <= DISTANCE_THRESHOLD:
 					state = PLAYING
-					#video = subprocess.Popen(['omxplayer', 'video.mp4'])
+					video = subprocess.Popen(['omxplayer', 'video.mp4'])
 					
 					time.sleep(VIDEO_LENGHT)
 					
 					state = IDLE
 					
-					#video.kill()
-					#video.terminate()
+					video.kill()
+					video.terminate()
 										
 					init_sensor()
 					
